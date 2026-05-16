@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー | 片道交換日記</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #FFFDF8;
+      --bg-sub:    #F7F0E6;
+      --text:      #1E1A16;
+      --sub-text:  #9C8C7E;
+      --accent:    #C49535;
+      --border:    #E5D8C8;
+      --card:      #FFFFFF;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── ヘッダー ── */
+    header {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+
+    .header-eyebrow {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 700;
+      font-size: 28px;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .header-title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--text);
+    }
+
+    .header-subtitle {
+      font-size: 12px;
+      color: var(--sub-text);
+      margin-top: -3px;
+    }
+
+    /* ── コンテンツ ── */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    .last-updated {
+      font-size: 12px;
+      color: var(--sub-text);
+      text-align: right;
+      margin-bottom: 32px;
+    }
+
+    .lead {
+      background: var(--bg-sub);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      font-size: 14px;
+      color: var(--sub-text);
+      line-height: 1.8;
+      margin-bottom: 48px;
+    }
+
+    section {
+      margin-bottom: 44px;
+    }
+
+    h2 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2 .section-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    p {
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    ul li::before {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 9px;
+      flex-shrink: 0;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-top: 16px;
+    }
+
+    .card-label {
+      font-size: 12px;
+      color: var(--sub-text);
+      margin-bottom: 4px;
+    }
+
+    .card-value {
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .card-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    th {
+      background: var(--bg-sub);
+      color: var(--sub-text);
+      font-weight: 600;
+      font-size: 12px;
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.7;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .highlight {
+      background: var(--bg-sub);
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-size: 14px;
+      color: var(--sub-text);
+      margin-top: 12px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    /* ── フッター ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      background: var(--bg-sub);
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 16px;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .footer-text {
+      font-size: 12px;
+      color: var(--sub-text);
+    }
+
+    .footer-link {
+      font-size: 13px;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 600px) {
+      main { padding: 32px 16px 64px; }
+      h2 { font-size: 16px; }
+      table { font-size: 13px; }
+      th, td { padding: 10px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <p class="header-eyebrow">片道交換日記<br><span style="display:block; font-size:13px; font-weight:400; letter-spacing:0.08em; margin-top:-2px;">〜日常と懺悔〜</span></p>
+    <h1 class="header-title">プライバシーポリシー</h1>
+    <p class="header-subtitle">Privacy Policy</p>
+  </header>
+
+  <main>
+    <p class="last-updated">最終更新日：2026年5月15日</p>
+
+    <p class="lead">
+      片道交換日記（以下「本アプリ」）は、ユーザーのプライバシーを尊重し、個人情報の適切な保護に努めます。本ポリシーは、本アプリが収集・利用する情報の取り扱いについて説明します。
+    </p>
+
+    <!-- 1 -->
+    <section>
+      <h2><span class="section-num">01</span>収集する情報</h2>
+      <p>本アプリは、以下の情報を収集します。</p>
+      <table>
+        <thead>
+          <tr>
+            <th>情報の種類</th>
+            <th>収集のタイミング</th>
+            <th>保存先</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>匿名ユーザーID<br><small style="color:var(--sub-text)">アプリ起動時に自動生成されるランダムなID</small></td>
+            <td>初回起動時</td>
+            <td>端末内</td>
+          </tr>
+          <tr>
+            <td>Firebase匿名認証UID<br><small style="color:var(--sub-text)">Googleが発行する認証識別子</small></td>
+            <td>初回起動時</td>
+            <td>Firebase</td>
+          </tr>
+          <tr>
+            <td>日記の本文・投稿日時・モード<br><small style="color:var(--sub-text)">公開設定で投稿した場合のみ</small></td>
+            <td>日記投稿時</td>
+            <td>端末内 + Firebase</td>
+          </tr>
+          <tr>
+            <td>通報情報<br><small style="color:var(--sub-text)">通報者ID・通報理由・通報対象の日記内容</small></td>
+            <td>通報操作時</td>
+            <td>Firebase</td>
+          </tr>
+          <tr>
+            <td>既読通知情報<br><small style="color:var(--sub-text)">自分の日記が他ユーザーに確認された日時</small></td>
+            <td>他ユーザーが日記を確認した時</td>
+            <td>Firebase（確認後削除）</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="highlight">
+        本アプリは氏名・電話番号・メールアドレス等の個人を直接特定できる情報を収集しません。日記の内容には個人情報を含めないようご注意ください。
+      </p>
+    </section>
+
+    <!-- 2 -->
+    <section>
+      <h2><span class="section-num">02</span>情報の利用目的</h2>
+      <ul>
+        <li>本アプリのコア機能（日記の交換・既読通知）の提供</li>
+        <li>不正な投稿・連続通報等の悪意ある利用の検知とアカウント制限</li>
+        <li>利用規約違反コンテンツの調査・対応</li>
+        <li>サービスの品質改善および障害対応</li>
+        <li>お問い合わせへの対応</li>
+      </ul>
+    </section>
+
+    <!-- 3 -->
+    <section>
+      <h2><span class="section-num">03</span>第三者への情報提供</h2>
+      <p>収集した情報は、以下の場合を除き第三者に提供しません。</p>
+      <ul>
+        <li>法令に基づく開示請求があった場合</li>
+        <li>人の生命・身体・財産の保護のために必要な場合</li>
+        <li>下記の委託先（クラウドサービス）へのデータ処理</li>
+      </ul>
+      <div class="card">
+        <div class="card-rows">
+          <div>
+            <p class="card-label">クラウドサービス</p>
+            <p class="card-value">Google Firebase（Firestore / Authentication）</p>
+          </div>
+          <div>
+            <p class="card-label">運営会社</p>
+            <p class="card-value">Google LLC（米国）</p>
+          </div>
+          <div>
+            <p class="card-label">プライバシーポリシー</p>
+            <p class="card-value"><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section>
+      <h2><span class="section-num">04</span>データの保管と削除</h2>
+      <ul>
+        <li>公開投稿した日記は、他のユーザーが1名確認した時点でサーバーから自動削除されます。本文データは端末内のみに残ります</li>
+        <li>非公開設定の日記は、サーバーに保存されず端末内にのみ保存されます</li>
+        <li>既読通知はアプリ起動時の同期処理後にサーバーから削除されます</li>
+        <li>通報データは管理者による確認・処理後に適切に取り扱われます</li>
+        <li>アプリをアンインストールすると、端末内のすべてのデータが削除されます</li>
+      </ul>
+    </section>
+
+    <!-- 5 -->
+    <section>
+      <h2><span class="section-num">05</span>懺悔モードの特別な取り扱い</h2>
+      <p>懺悔モードで投稿した日記は、以下の追加措置を講じています。</p>
+      <ul>
+        <li>投稿者と確認者の2名のみがアクセス可能な設計です</li>
+        <li>確認中のスクリーンショット撮影を技術的に抑制しています</li>
+        <li>確認者のIDを表示することで、無断拡散に対する抑止力を設けています</li>
+        <li>第三者への拡散・共有は本アプリの利用規約で禁止しています</li>
+      </ul>
+    </section>
+
+    <!-- 6 -->
+    <section>
+      <h2><span class="section-num">06</span>未成年者のご利用について</h2>
+      <p>
+        本アプリは13歳未満の方のご利用を想定していません。13歳未満の方が情報を送信したと判明した場合、速やかに当該情報を削除します。
+      </p>
+    </section>
+
+    <!-- 7 -->
+    <section>
+      <h2><span class="section-num">07</span>プライバシーポリシーの変更</h2>
+      <p>
+        本ポリシーは、法令の改正やサービス内容の変更に伴い、予告なく改定することがあります。重要な変更がある場合は、アプリ内またはアプリストアのリリースノートにてお知らせします。
+      </p>
+    </section>
+
+    <!-- 8 -->
+    <section>
+      <h2><span class="section-num">08</span>お問い合わせ</h2>
+      <p>
+        本ポリシーに関するご質問・個人情報の取り扱いに関するご要望は、下記よりお問い合わせください。
+      </p>
+      <div class="card" style="text-align:center; padding: 24px;">
+        <a href="./contact.html" style="display:inline-block; background:var(--accent); color:#fff; font-family:'Noto Serif JP',serif; font-weight:600; font-size:14px; padding:13px 36px; border-radius:30px; text-decoration:none; letter-spacing:0.05em;">
+          お問い合わせフォームへ
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p class="footer-brand">One-way Exchange Diary</p>
+    <p class="footer-text">片道交換日記 〜日常と懺悔〜</p>
+    <p class="footer-link">
+      <a href="./contact.html">お問い合わせ</a>
+    </p>
+  </footer>
+
+</body>
+</html>

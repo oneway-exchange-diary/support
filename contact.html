@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | 片道交換日記</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #FFFDF8;
+      --bg-sub:    #F7F0E6;
+      --text:      #1E1A16;
+      --sub-text:  #9C8C7E;
+      --accent:    #C49535;
+      --border:    #E5D8C8;
+      --card:      #FFFFFF;
+      --danger:    #C0392B;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── ヘッダー ── */
+    header {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+
+    .header-eyebrow {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 700;
+      font-size: 28px;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .header-title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .header-subtitle {
+      font-size: 12px;
+      color: var(--sub-text);
+      margin-top: -3px;
+    }
+
+    /* ── コンテンツ ── */
+    main {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    .lead {
+      font-size: 14px;
+      color: var(--sub-text);
+      line-height: 1.85;
+      margin-bottom: 36px;
+      text-align: center;
+    }
+
+    /* ── カテゴリ選択 ── */
+    .category-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--sub-text);
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+
+    .category-item {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .category-item.active {
+      border-color: var(--accent);
+      background: var(--bg-sub);
+    }
+
+    .category-radio {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      transition: border-color 0.15s;
+    }
+
+    .category-item.active .category-radio {
+      border-color: var(--accent);
+    }
+
+    .category-radio-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: none;
+    }
+
+    .category-item.active .category-radio-dot { display: block; }
+
+    .category-text {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .category-text small {
+      display: block;
+      font-size: 11px;
+      color: var(--sub-text);
+      margin-top: 2px;
+    }
+
+    /* ── フォームカード ── */
+    .form-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .form-row {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .form-row:last-child { border-bottom: none; }
+
+    .form-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--sub-text);
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .form-label .required {
+      font-size: 10px;
+      background: var(--danger);
+      color: #fff;
+      padding: 1px 5px;
+      border-radius: 3px;
+      letter-spacing: 0;
+      font-weight: 400;
+    }
+
+    .form-label .optional {
+      font-size: 10px;
+      background: var(--bg-sub);
+      color: var(--sub-text);
+      padding: 1px 5px;
+      border-radius: 3px;
+      letter-spacing: 0;
+      font-weight: 400;
+    }
+
+    .form-note {
+      font-size: 12px;
+      color: var(--sub-text);
+      line-height: 1.7;
+    }
+
+    /* ── Googleフォームコンテナ ── */
+    .gform-container {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gform-container iframe {
+      width: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* Googleフォームが未設定の場合のプレースホルダー */
+    .gform-placeholder {
+      text-align: center;
+      padding: 60px 32px;
+    }
+
+    .gform-placeholder-icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
+    .gform-placeholder-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .gform-placeholder-text {
+      font-size: 13px;
+      color: var(--sub-text);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .gform-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 13px 36px;
+      border-radius: 30px;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: opacity 0.15s;
+    }
+
+    .gform-btn:hover { opacity: 0.85; }
+
+    /* ── 注意事項 ── */
+    .notice {
+      background: var(--bg-sub);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      font-size: 13px;
+      color: var(--sub-text);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .notice ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .notice ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .notice ul li::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 9px;
+      flex-shrink: 0;
+    }
+
+    /* ── フッター ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      background: var(--bg-sub);
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 16px;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .footer-text {
+      font-size: 12px;
+      color: var(--sub-text);
+    }
+
+    .footer-link {
+      font-size: 13px;
+      margin-top: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      main { padding: 32px 16px 64px; }
+      .category-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <p class="header-eyebrow">片道交換日記<br><span style="display:block; font-size:13px; font-weight:400; letter-spacing:0.08em; margin-top:-2px;">〜日常と懺悔〜</span></p>
+    <h1 class="header-title">お問い合わせ</h1>
+    <p class="header-subtitle">Contact</p>
+  </header>
+
+  <main>
+
+    <p class="lead">
+      ご不明な点やご意見・ご要望など、<br>
+      下記フォームよりお気軽にお送りください。<br>
+      通常2〜5営業日以内にご返信いたします。
+    </p>
+
+    <!-- 注意事項 -->
+    <div class="notice">
+      <ul>
+        <li>日記の内容に関する具体的なご相談はお受けしておりません</li>
+        <li>個人間のトラブルに関する仲裁は行っておりません</li>
+        <li>アプリ内の通報機能をご利用の場合は直接アプリからご報告ください</li>
+        <li>いただいた情報はお問い合わせへの対応にのみ使用します</li>
+      </ul>
+    </div>
+
+    <!-- 入力項目の説明 -->
+    <div class="form-card">
+      <div class="form-row">
+        <p class="form-label">
+          メールアドレス
+          <span class="required">必須</span>
+        </p>
+        <p class="form-note">ご返信先のメールアドレスをご入力ください</p>
+      </div>
+      <div class="form-row">
+        <p class="form-label">
+          ユーザーID
+          <span class="required">必須</span>
+        </p>
+        <p class="form-note">アプリのマイページに表示されているIDをご記入ください</p>
+      </div>
+      <div class="form-row">
+        <p class="form-label">
+          お問い合わせ内容
+          <span class="required">必須</span>
+        </p>
+        <p class="form-note">できるだけ具体的にご記入いただけますとスムーズに対応できます</p>
+      </div>
+    </div>
+
+    <!-- Googleフォーム埋め込みエリア -->
+    <!--
+      ▼ Googleフォーム作成後、下の <div class="gform-placeholder"> を削除して
+        以下の形式で iframe を追加してください。
+
+        <div class="gform-container">
+          <iframe
+            src="https://docs.google.com/forms/d/e/【YOUR_FORM_ID】/viewform?embedded=true"
+            width="100%"
+            height="900"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0">
+            読み込んでいます…
+          </iframe>
+        </div>
+    -->
+    <div class="gform-container">
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSdMhUvrzKwNkbMruF79o2v4n8YifPQQi2E503Q5QZEOzFTetw/viewform?embedded=true"
+        width="100%"
+        height="691"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0">
+        読み込んでいます…
+      </iframe>
+    </div>
+
+  </main>
+
+  <footer>
+    <p class="footer-brand">One-way Exchange Diary</p>
+    <p class="footer-text">片道交換日記 〜日常と懺悔〜</p>
+    <p class="footer-link">
+      <a href="./privacy-policy.html">プライバシーポリシー</a>
+    </p>
+  </footer>
+
+</body>
+</html>
