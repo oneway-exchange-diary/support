@@ -252,7 +252,7 @@
   </header>
 
   <main>
-    <p class="last-updated">最終更新日：2026年5月15日</p>
+    <p class="last-updated">最終更新日：2026年5月27日</p>
 
     <p class="lead">
       片道交換日記（以下「本アプリ」）は、ユーザーのプライバシーを尊重し、個人情報の適切な保護に努めます。本ポリシーは、本アプリが収集・利用する情報の取り扱いについて説明します。
@@ -282,9 +282,9 @@
             <td>Firebase</td>
           </tr>
           <tr>
-            <td>日記の本文・投稿日時・モード<br><small style="color:var(--sub-text)">公開設定で投稿した場合のみ</small></td>
+            <td>日記の本文・投稿日時・モード<br><small style="color:var(--sub-text)">公開設定で投稿した場合のみ。懺悔モードは端末内に保存されません</small></td>
             <td>日記投稿時</td>
-            <td>端末内 + Firebase</td>
+            <td>日常モード：端末内 + Firebase<br>懺悔モード：Firebase のみ</td>
           </tr>
           <tr>
             <td>通報情報<br><small style="color:var(--sub-text)">通報者ID・通報理由・通報対象の日記内容</small></td>
@@ -328,7 +328,7 @@
         <div class="card-rows">
           <div>
             <p class="card-label">クラウドサービス</p>
-            <p class="card-value">Google Firebase（Firestore / Authentication）</p>
+            <p class="card-value">Google Firebase（Firestore / Authentication / Cloud Functions）</p>
           </div>
           <div>
             <p class="card-label">運営会社</p>
@@ -348,7 +348,7 @@
       <ul>
         <li>公開投稿した日記は、他のユーザーが1名確認した時点でサーバーから自動削除されます。本文データは端末内のみに残ります</li>
         <li>非公開設定の日記は、サーバーに保存されず端末内にのみ保存されます</li>
-        <li>既読通知はアプリ起動時の同期処理後にサーバーから削除されます</li>
+        <li>既読通知はアプリ起動時の同期処理後にサーバーから削除されます。また、未同期の通知は24時間後に自動削除されます</li>
         <li>通報データは管理者による確認・処理後に適切に取り扱われます</li>
         <li>アプリをアンインストールすると、端末内のすべてのデータが削除されます</li>
       </ul>
@@ -360,6 +360,7 @@
       <p>懺悔モードで投稿した日記は、以下の追加措置を講じています。</p>
       <ul>
         <li>投稿者と確認者の2名のみがアクセス可能な設計です</li>
+        <li>日記の内容は端末内（ローカルストレージ）に保存されません。確認後はサーバーからも削除されます</li>
         <li>確認中のスクリーンショット撮影を技術的に抑制しています</li>
         <li>確認者のIDを表示することで、無断拡散に対する抑止力を設けています</li>
         <li>第三者への拡散・共有は本アプリの利用規約で禁止しています</li>
